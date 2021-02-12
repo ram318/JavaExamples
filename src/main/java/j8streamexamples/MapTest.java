@@ -1,5 +1,7 @@
 package j8streamexamples;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,9 +23,9 @@ public class MapTest {
         System.out.println(allNumbers);
 
         //Create Student objects
-        Student stuone = new Student("Ram","3",1);
-        Student stuTwo = new Student("Ravan","3",2);
-        Student stuThree = new Student("Laxman","3",3);
+        Student stuone = new Student("Ram","3",1,45);
+        Student stuTwo = new Student("Ravan","3",2,75);
+        Student stuThree = new Student("Laxman","3",3,34);
         List<Student> stuList = Arrays.asList(stuone,stuThree,stuTwo);
 
         List<String> nameList = stuList.stream().map(s->s.getName()).collect(Collectors.toList());
@@ -31,6 +33,7 @@ public class MapTest {
 
 
         stuList.stream().map(s->s.getName()).forEachOrdered(System.out::println);
+        stuList.stream().map(s->s.getPercentage()).forEach(stuone::getDivision);//forEach takes Consumer
 
 
 
