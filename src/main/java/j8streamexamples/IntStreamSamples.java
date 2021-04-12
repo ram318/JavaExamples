@@ -1,5 +1,7 @@
 package j8streamexamples;
 
+import j8functionalexamples.MathSum;
+
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
@@ -17,6 +19,10 @@ public class IntStreamSamples {
 
         Function<Integer, Integer> myFunction = i -> i * i;
         IntStream.range(1,11).forEach(a->System.out.format("%s ",myFunction.apply(a)));
+
+        System.out.println("\n------------------");
+        MathSum mathSum = (one,two)->one+two;
+        System.out.println(IntStream.range(1,11).parallel().reduce(0, mathSum::sum));
 
     }
 }

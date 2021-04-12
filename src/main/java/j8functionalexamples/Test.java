@@ -7,7 +7,7 @@ import java.util.function.*;
 public class Test {
 
     public static void main(String args[]) {
-        Integer a = null;
+        Integer a = 3;
         int b = 2;
         Optional<Integer> oA = Optional.ofNullable(a);
         OptionalInt oB = OptionalInt.of(b);
@@ -25,6 +25,9 @@ public class Test {
         System.out.println("The square root of " + oB.getAsInt() + " is " + myFunction.apply(oB.getAsInt()));
         System.out.printf("The multiplication of %d and %d is %d ", oA.get(), oB.getAsInt(), (int) (mybiFunction.apply(oA.get(), oB.getAsInt())));
 
+        MathSum mathSum = (one,two)->one+two;
+        System.out.println();
+        System.out.println(mathSum.sum(2,3));
 
     }
 }

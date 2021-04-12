@@ -1,11 +1,11 @@
 package codeassignments;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class Test {
+public class Triplets {
     public static void main(String args[]){
         int[] sumTriple = {-1,-2,3,-4,5,6};
-        HashMap<Integer,Integer> myMap = new HashMap<>();
+        LinkedHashMap<Integer,Integer> myMap = new LinkedHashMap<>();
         for(int i =0;i<sumTriple.length;i++){
             myMap.put(sumTriple[i],1);
         }

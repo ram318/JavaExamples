@@ -3,6 +3,7 @@ package j8streamexamples;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +35,8 @@ public class MapTest {
 
         stuList.stream().map(s->s.getName()).forEachOrdered(System.out::println);
         stuList.stream().map(s->s.getPercentage()).forEach(stuone::getDivision);//forEach takes Consumer
+
+        //stuList.stream().flatMap(s->s.getName()).collect(Collectors.toList());
 
 
 
