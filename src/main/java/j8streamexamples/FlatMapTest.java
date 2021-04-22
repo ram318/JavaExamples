@@ -17,18 +17,18 @@ public class FlatMapTest {
         ArrayList<Company> companyList = new ArrayList<>();
         companyList.add(company);
         companyList.add(companyTwo);
-        //Predicate<Employee> ageFilter = employee -> employee.getAge()>25;
+        Predicate<Employee> ageFilter = employee -> employee.getAge()>25;
 
         System.out.println("--VARIANT 1--");
         companyList.stream().map(company1 -> company1.getEmployeeList())
-                .flatMap(employees -> employees.stream().filter(employee -> employee.getAge()>25))
+                .flatMap(employees -> employees.stream().filter(ageFilter))
                 .map(employee -> employee.getAddressList())
                 .flatMap(address -> (address).stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
 
         System.out.println("--VARIANT 2--");
 
-        companyList.stream().flatMap(company1 -> company1.getEmployeeList().stream().filter(employee -> employee.getAge()>25))
+        companyList.stream().flatMap(company1 -> company1.getEmployeeList().stream().filter(ageFilter))
                 .flatMap(employee -> employee.getAddressList().stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
     }
