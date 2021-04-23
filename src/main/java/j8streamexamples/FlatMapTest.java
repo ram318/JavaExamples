@@ -7,8 +7,8 @@ public class FlatMapTest {
 
     public static void main(String[] args) {
 
-        Company company = getCompanyObject();
-        Company companyTwo = getCompanyObject();
+        Company company = getCompanyObject("c1");
+        Company companyTwo = getCompanyObject("c2");
 //        company.getEmployeeList().stream().map(emp -> emp.getAddressList())
 //                .flatMap(address -> (address).stream())
 //                .collect(Collectors.toList()).forEach(System.out::println);
@@ -26,13 +26,14 @@ public class FlatMapTest {
 
     }
 
-    public static Company getCompanyObject(){
+    public static Company getCompanyObject(String companyName){
         //Create Four Addresses
-        Address empOneAddressOne = new Address("1","Street1","CityOne","StateOne","500001");
-        Address empOneAddressTwo = new Address("2","Street2","CityTwo","StateTwo","500002");
+        //Adding companyName to houeseNumber to identify the objects when printed through System.out.println()
+        Address empOneAddressOne = new Address(companyName+" 1","Street1","CityOne","StateOne","500001");
+        Address empOneAddressTwo = new Address(companyName+" 2","Street2","CityTwo","StateTwo","500002");
 
-        Address empTwoAddressOne = new Address("1a","Street1a","CityOne","StateOne","500001");
-        Address empTwoAddressTwo = new Address("2a","Street2a","CityTwo","StateTwo","500002");
+        Address empTwoAddressOne = new Address(companyName+ " 1a","Street1a","CityOne","StateOne","500001");
+        Address empTwoAddressTwo = new Address(companyName+" 2a","Street2a","CityTwo","StateTwo","500002");
 
         ArrayList<Address> empOneAddressesList = new ArrayList();
         empOneAddressesList.add(empOneAddressOne);
@@ -50,7 +51,7 @@ public class FlatMapTest {
         employeeList.add(empOne);
         employeeList.add(empTwo);
 
-        Company company = new Company("company1",employeeList);
+        Company company = new Company(companyName,employeeList);
         return company;
     }
 }
