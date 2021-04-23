@@ -22,8 +22,6 @@ public class FlatMapTest {
                 .map(employee -> employee.getAddressList())
                 .flatMap(address -> (address).stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
-
-
     }
 
     public static Company getCompanyObject(String companyName){
