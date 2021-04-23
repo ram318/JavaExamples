@@ -31,6 +31,13 @@ public class FlatMapTest {
         companyList.stream().flatMap(company1 -> company1.getEmployeeList().stream().filter(ageFilter))
                 .flatMap(employee -> employee.getAddressList().stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
+
+
+        System.out.println("--VARIANT 3--");
+
+        companyList.stream().flatMap(company1 -> company1.getEmployeeList().stream()
+                .filter(ageFilter).flatMap(employee -> employee.getAddressList().stream()))
+                .collect(Collectors.toList()).forEach(System.out::println);
     }
 
     public static Company getCompanyObject(String companyName){
