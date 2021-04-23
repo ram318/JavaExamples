@@ -11,5 +11,6 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class Employee {
     private String employeeName;
+    private int age;
     private ArrayList<Address> addressList;
 }

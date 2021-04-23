@@ -1,7 +1,6 @@
 package j8streamexamples;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class FlatMapTest {
@@ -9,9 +8,22 @@ public class FlatMapTest {
     public static void main(String[] args) {
 
         Company company = getCompanyObject();
+        Company companyTwo = getCompanyObject();
         company.getEmployeeList().stream().map(emp -> emp.getAddressList())
                 .flatMap(address -> (address).stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
+
+        ArrayList<Company> companyList = new ArrayList<>();
+        companyList.add(company);
+        companyList.add(companyTwo);
+
+        companyList.stream().map(company1 -> company1.getEmployeeList())
+                .flatMap(employees -> employees.stream().filter(employee -> employee.getAge()>40))
+                .map(employee -> employee.getAddressList())
+                .flatMap(address -> (address).stream())
+                .collect(Collectors.toList()).forEach(System.out::println);
+
+
     }
 
     public static Company getCompanyObject(){
@@ -31,8 +43,8 @@ public class FlatMapTest {
         empOneAddressesList.add(empTwoAddressTwo);
 
         //Create Two Employees
-        Employee empOne = new Employee("empOne",empOneAddressesList);
-        Employee empTwo = new Employee("empTwo",empTwoAddressesList);
+        Employee empOne = new Employee("empOne",25,empOneAddressesList);
+        Employee empTwo = new Employee("empTwo",35,empTwoAddressesList);
 
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
         employeeList.add(empOne);
