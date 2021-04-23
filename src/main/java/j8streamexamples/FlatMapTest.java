@@ -9,16 +9,16 @@ public class FlatMapTest {
 
         Company company = getCompanyObject();
         Company companyTwo = getCompanyObject();
-        company.getEmployeeList().stream().map(emp -> emp.getAddressList())
-                .flatMap(address -> (address).stream())
-                .collect(Collectors.toList()).forEach(System.out::println);
+//        company.getEmployeeList().stream().map(emp -> emp.getAddressList())
+//                .flatMap(address -> (address).stream())
+//                .collect(Collectors.toList()).forEach(System.out::println);
 
         ArrayList<Company> companyList = new ArrayList<>();
         companyList.add(company);
         companyList.add(companyTwo);
 
         companyList.stream().map(company1 -> company1.getEmployeeList())
-                .flatMap(employees -> employees.stream().filter(employee -> employee.getAge()>40))
+                .flatMap(employees -> employees.stream().filter(employee -> employee.getAge()>25))
                 .map(employee -> employee.getAddressList())
                 .flatMap(address -> (address).stream())
                 .collect(Collectors.toList()).forEach(System.out::println);
@@ -40,7 +40,7 @@ public class FlatMapTest {
 
         ArrayList<Address> empTwoAddressesList = new ArrayList();
         empTwoAddressesList.add(empTwoAddressOne);
-        empOneAddressesList.add(empTwoAddressTwo);
+        empTwoAddressesList.add(empTwoAddressTwo);
 
         //Create Two Employees
         Employee empOne = new Employee("empOne",25,empOneAddressesList);
