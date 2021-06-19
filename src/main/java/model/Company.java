@@ -1,4 +1,4 @@
-package j8streamexamples;
+package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

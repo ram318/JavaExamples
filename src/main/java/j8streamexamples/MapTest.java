@@ -1,9 +1,8 @@
 package j8streamexamples;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import model.Student;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

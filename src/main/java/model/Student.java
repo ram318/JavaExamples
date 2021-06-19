@@ -1,5 +1,8 @@
-package j8streamexamples;
+package model;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Student {
 
     private String name;

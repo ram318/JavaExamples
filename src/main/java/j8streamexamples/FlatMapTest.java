@@ -1,5 +1,9 @@
 package j8streamexamples;
 
+import model.Address;
+import model.Company;
+import model.Employee;
+
 import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
